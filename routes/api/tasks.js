@@ -12,3 +12,17 @@ router.get('/', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+//POST api/tasks: Create a task
+router.post('/', auth, async (req, res) => {
+  try {
+    const newTask = new Task({
+      title: req.body.title,
+      user: req.user.id,
+    });
+    const task = await newTask.save();
+    res.json(task);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
