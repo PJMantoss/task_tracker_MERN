@@ -3,8 +3,8 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const Task = require('../../models/Task');
 
-// @route   GET api/tasks
-// @desc    Get all user's tasks
+// GET api/tasks
+// Get all user's tasks
 router.get('/', auth, async (req, res) => {
   try {
     const tasks = await Task.find({ user: req.user.id }).sort({ date: -1 });
@@ -14,8 +14,8 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// @route   POST api/tasks
-// @desc    Create a task
+// POST api/tasks
+// Create a task
 router.post('/', auth, async (req, res) => {
   try {
     const newTask = new Task({
