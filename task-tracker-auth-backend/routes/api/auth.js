@@ -1,13 +1,11 @@
-// Authentication routes
-//Variables
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../../task-tracker-auth-backend/models/User');
+const User = require('../../models/User');
 
-// POST Req - api/auth/register
-// Register user
+// @route   POST api/auth/register
+// @desc    Register user
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
     try {
@@ -30,8 +28,8 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// POST Req - api/auth/login
-// Authenticate user & get token
+// @route   POST api/auth/login
+// @desc    Authenticate user & get token
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {

@@ -1,6 +1,6 @@
 require('dotenv').config(); // Load environment variables
 const express = require('express');
-const connectDB = require('./config/db');
+const connectDB = require('./task-tracker-auth-backend/config/db');
 const app = express();
 
 connectDB();
