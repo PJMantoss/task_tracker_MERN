@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../../models/User');
+const User = require('../../task-tracker-auth-backend/models/User');
 
 // POST Req - api/auth/register
 // Register user
