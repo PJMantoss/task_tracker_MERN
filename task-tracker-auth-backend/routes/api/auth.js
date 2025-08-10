@@ -4,16 +4,19 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
-// @route   POST api/auth/register
-// @desc    Register user
+// POST api/auth/register
+// Register user
 router.post('/register', async (req, res) => {
+
     const { name, email, password } = req.body;
+
     try {
         let user = await User.findOne({ email });
         if (user) return res.status(400).json({ msg: 'User already exists' });
 
         user = new User({ name, email, password });
         const salt = await bcrypt.genSalt(10);
+        // Hash password
         user.password = await bcrypt.hash(password, salt);
         await user.save();
 
@@ -28,10 +31,12 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// @route   POST api/auth/login
-// @desc    Authenticate user & get token
+// POST api/auth/login
+// Authenticate user & get token
 router.post('/login', async (req, res) => {
+
     const { email, password } = req.body;
+    
     try {
         let user = await User.findOne({ email });
         if (!user) return res.status(400).json({ msg: 'Invalid Credentials' });
