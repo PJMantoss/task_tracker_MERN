@@ -22,6 +22,7 @@ router.post('/', auth, async (req, res) => {
       title: req.body.title,
       user: req.user.id,
     });
+
     const task = await newTask.save();
     res.json(task);
   } catch (err) {
@@ -29,8 +30,8 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-// @route   PUT api/tasks/:id
-// @desc    Update a task
+// PUT api/tasks/:id
+// Update a task
 router.put('/:id', auth, async (req, res) => {
     try {
         let task = await Task.findById(req.params.id);
