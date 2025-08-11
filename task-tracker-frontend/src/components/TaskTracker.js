@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '../App.css';
 
 export default function TaskTracker({ setAuthToken }) {
   const [tasks, setTasks] = useState([]);
