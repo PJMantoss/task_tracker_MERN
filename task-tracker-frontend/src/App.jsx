@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import AuthPage from './components/AuthPage';
+import TaskTracker from './components/TaskTracker';
+import './App.css';
 
 function App() {
   const [authToken, setAuthToken] = useState(api.getToken());
