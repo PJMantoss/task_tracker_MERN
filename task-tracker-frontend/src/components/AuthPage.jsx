@@ -2,30 +2,30 @@ import { useState } from 'react';
 import '../App.css'
 
 export default function AuthPage({ setAuthToken }) {
-//   const [isLogin, setIsLogin] = useState(true);
-//   const [name, setName] = useState('');
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [error, setError] = useState('');
+  const [isLogin, setIsLogin] = useState(true);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError('');
-//     try {
-//       const data = isLogin
-//         ? await api.login({ email, password })
-//         : await api.register({ name, email, password });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      const data = isLogin
+        ? await api.login({ email, password })
+        : await api.register({ name, email, password });
 
-//       if (data.token) {
-//         api.setToken(data.token);
-//         setAuthToken(data.token);
-//       } else {
-//         setError(data.msg || 'An error occurred.');
-//       }
-//     } catch (err) {
-//       setError('Failed to connect to the server.');
-//     }
-//   };
+      if (data.token) {
+        api.setToken(data.token);
+        setAuthToken(data.token);
+      } else {
+        setError(data.msg || 'An error occurred.');
+      }
+    } catch (err) {
+      setError('Failed to connect to the server.');
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
