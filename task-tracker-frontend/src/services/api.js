@@ -33,3 +33,5 @@ const api = {
   deleteTask: (id) => fetch(`${API_BASE_URL}/tasks/${id}`, { method: 'DELETE', headers: api._getAuthHeaders() }),
   toggleTask: (id) => fetch(`${API_BASE_URL}/tasks/${id}`, { method: 'PUT', headers: api._getAuthHeaders() }),
 };
+
+module.exports = api;
